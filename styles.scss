@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+// palette
+
+$very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$soft-red: hsl(14, 88%, 65%);
+
+// gradient
+$soft-violet: hsl(273, 75%, 66%);
+$soft-blue: hsl(240, 73%, 65%);
+
+$very-dark-grayish-blue: hsl(237, 12%, 33%);
+$dark-grayish-blue: hsl(240, 6%, 50%);
+
+// separator
+$separator: hsl(240, 5%, 91%);
+
+body {
+    background: linear-gradient(90deg, $soft-blue 50%, $soft-violet 60%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.faq-container {
+    width: 850px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    background-image: url('./images/illustration-woman-online-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: left -25% center;
+    background-size: auto;
+    min-height: 70vh;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    .bg-mobile {
+        display: none;
+    }
+    .box {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        transform: translate(-50%, 0%);
+    }
+    .left-side {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-image: url('./images/bg-pattern-desktop.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right -300% bottom;
+    }
+    .right-side {
+        width: 50%;
+        h1 {margin-bottom: 20px;}
+        .question {
+            border-bottom: 1px solid $separator;
+            padding-bottom: 10px;
+            margin: 20px 0px;
+        }
+
+        .q {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            p {
+                font-weight: 400;
+                color: $very-dark-desaturated-blue;
+                font-size: 16px;
+                &.active {
+                    font-weight: 700;
+                }
+                &:hover {
+                    color: $soft-red;
+                    cursor: pointer;
+                }
+            }
+            i {
+                color: $soft-red;
+                cursor: pointer;
+            }
+        }
+
+        .ans {
+            margin-top: 15px;
+            display: none;
+            &.active {
+                display: block;
+            }
+
+            p {
+                font-size: 14px;
+                color: $dark-grayish-blue;
+            }
+        }
+    }
+}
+
+.attribution {
+    font-size: 11px; 
+    text-align: center;
+    margin-top: 50px;
+    a {
+        color: hsl(228, 45%, 44%); 
+    }
+}
+
+@media(max-width: 800px) {
+    body {
+        padding: 100px 10px 10px 20px;
+    }
+    .faq-container {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-image: none;
+        padding-top: 40px;
+        .bg-mobile {
+            display: block;
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .box {
+            display: none;
+        }
+        .left-side {
+            display: none;
+        }
+
+        .right-side {
+            width: 100%;
+        }
+    }
+}
